@@ -1,0 +1,13 @@
+#task 1
+
+
+def display_menu():
+    print("Welcome to the To-Do List App!\nMenu:")
+    print("1. Add a task")
+    print("2. View tasks")
+    print("3. Mark a task as complete")
+    print("4. Delete a task")
+    print("5. Quit")
+
+# Example usage:
+display_menu()

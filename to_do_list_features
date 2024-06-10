@@ -1,0 +1,35 @@
+tasks = []  # List to store tasks
+
+def add_task(title="Incomplete"):
+    tasks.append({"title": title, "status": "Incomplete"})
+
+def view_tasks():
+    print("Tasks:")
+    for i, task in enumerate(tasks, 1):
+        print(f"{i}. {task['title']} - {task['status']}")
+
+def mark_task_complete(index):
+    if index >= 1 and index <= len(tasks):
+        tasks[index - 1]["status"] = "Complete"
+    else:
+        print("Invalid task index.")
+
+def delete_task(index):
+    if index >= 1 and index <= len(tasks):
+        del tasks[index - 1]
+    else:
+        print("Invalid task index.")
+
+# Example usage:
+add_task("Buy groceries")
+add_task("Finish report")
+
+view_tasks()
+
+mark_task_complete(1)
+
+view_tasks()
+
+delete_task(2)
+
+view_tasks()

@@ -1,0 +1,38 @@
+def main():
+    while True:
+        print("\nMenu:")
+        print("1. Add a task")
+        print("2. View tasks")
+        print("3. Mark a task as complete")
+        print("4. Delete a task")
+        print("5. Quit")
+        
+        choice = input("Enter your choice: ")
+
+        if choice == "1":
+            title = input("Enter task title: ")
+            add_task(title)
+        elif choice == "2":
+            view_tasks()
+        elif choice == "3":
+            try:
+                index = int(input("Enter the index of the task to mark as complete: "))
+                mark_task_complete(index)
+            except ValueError:
+                print("Invalid input. Please enter a valid integer for the task index.")
+        elif choice == "4":
+            try:
+                index = int(input("Enter the index of the task to delete: "))
+                delete_task(index)
+            except ValueError:
+                print("Invalid input. Please enter a valid integer for the task index.")
+        elif choice == "5":
+            print("Goodbye!")
+            break
+        else:
+            print("Invalid choice. Please enter a number from 1 to 5.")
+
+# Run the application
+if __name__ == "__main__":
+    print("Welcome to the To-Do List App!")
+    main()
