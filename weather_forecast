@@ -1,0 +1,86 @@
+#task 1
+
+def get_number_of_servings():
+    while True:
+        try:
+            original_servings = int(input("Enter the number of servings the recipe is originally for: "))
+            new_servings = int(input("Enter the number of servings you wish to make: "))
+            return original_servings, new_servings
+        except ValueError:
+            print("Error: Please enter valid numerical values for the number of servings.")
+
+# Example usage:
+try:
+    original_servings, new_servings = get_number_of_servings()
+    print("Original servings:", original_servings)
+    print("New servings:", new_servings)
+except ValueError as ve:
+    print(f"Error: {ve}")
+
+#task 2
+
+def calculate_adjustment_factor(original_servings, new_servings):
+    try:
+        adjustment_factor = new_servings / original_servings
+        return adjustment_factor
+    except ZeroDivisionError:
+        print("Error: The original servings cannot be zero.")
+    except ArithmeticError as e:
+        print(f"Arithmetic error occurred: {e}")
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
+
+# Example usage:
+try:
+    original_servings = 4  # Example original servings
+    new_servings = 8  # Example new servings
+
+    adjustment_factor = calculate_adjustment_factor(original_servings, new_servings)
+    if adjustment_factor is not None:
+        print("Adjustment factor:", adjustment_factor)
+except Exception as e:
+    print(f"An unexpected error occurred: {e}")
+
+
+#task 3
+
+def calculate_adjustment_factor(original_servings, new_servings):
+    try:
+        adjustment_factor = new_servings / original_servings
+        return adjustment_factor
+    except ZeroDivisionError:
+        print("Error: The original servings cannot be zero.")
+    except ArithmeticError as e:
+        print(f"Arithmetic error occurred: {e}")
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
+
+# Example recipe with quantities
+original_recipe = {
+    "Flour": 2,
+    "Sugar": 1,
+    "Eggs": 3,
+    "Milk": 1.5
+}
+
+def adjust_recipe_quantities(recipe, adjustment_factor):
+    adjusted_recipe = {}
+    for ingredient, quantity in recipe.items():
+        adjusted_quantity = quantity * adjustment_factor
+        adjusted_recipe[ingredient] = adjusted_quantity
+    return adjusted_recipe
+
+try:
+    original_servings = 4  # Example original servings
+    new_servings = 8  # Example new servings
+
+    adjustment_factor = calculate_adjustment_factor(original_servings, new_servings)
+    if adjustment_factor is not None:
+        adjusted_recipe = adjust_recipe_quantities(original_recipe, adjustment_factor)
+        print("\nAdjusted Recipe Quantities:")
+        for ingredient, quantity in adjusted_recipe.items():
+            print(f"{ingredient}: {quantity}")
+except Exception as e:
+    print(f"An unexpected error occurred: {e}")
+finally:
+    print("Enjoy your cooking!")
